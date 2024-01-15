@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+   
+    
+</head>
+<body>
+    <div id="miDiv">
+   <h1>WhatsApp 2: Ahora es Personal</h1> 
+  
+   <div id="chat"></div>
+    <br/>
+    <form >
+        
+        <input type="text" id="texto" placeholder="Cuentanos algo" onkeydown="presionarEnter(event)">
+        
+        
+    </form>
+    
+    <div id="contenedorDesplegable">
+        <select id="usuariosDesplegable"></select>
+    </div>
+    <button id="miBoton" onclick="addMessage()" >Enviar</button>
+    <button onclick="leerTexto()">Leer chat</button>
+    <button id="pdf" onclick="descargarComoPDF()" disabled>Descargar como Pdf</button>
+</div>
+    <footer>
+        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">WhatsApp 2 Ahora es personal</span> by <span property="cc:attributionName">Mateo González Núñez</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* Reset de márgenes y relleno para el cuerpo y la lista */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Color de fondo gris claro */
+    color: #333; /* Color de texto principal */
+    padding: 5px;
+}
+
+/* Encabezado */
+header {
+    background-color: #2ecc71; /* Verde brillante */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de las imágenes en el encabezado */
+header img {
+    width: 150px; /* Ajusta el ancho de las imágenes según tus necesidades */
+    height: auto;
+    margin: 0 10px; /* Ajusta el espacio entre las imágenes */
+    border-radius: 90px;
+}
+
+#imagen-body {
+    width: 100%;
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #27ae60; /* Verde oscuro */
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff; /* Color de texto blanco */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #2ecc71; /* Verde brillante */
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+footer p {
+    color: #fff; /* Color de texto blanco */
+    font-size: 14px;
+}
+
+/* Enlace del pie de página */
+footer a {
+    color: #fff; /* Color de texto blanco */
+    text-decoration: underline;
+}
+
+/* Media Queries para tamaños de pantalla específicos */
+@media only screen and (max-width: 600px) {
+    header img {
+        width: 100px;
+        margin: 0 5px;
+    }
+    
+    li {
+        margin-right: 10px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
