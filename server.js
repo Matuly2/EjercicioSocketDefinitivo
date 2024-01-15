@@ -286,7 +286,7 @@ app.post("/identificar", async function(req, res) {
   /**FUNCION PARA LOS MENSAJES PRIVADOS**/
 
   
-  
+  conectarDB();
 
   server.listen(port, () => {
     
