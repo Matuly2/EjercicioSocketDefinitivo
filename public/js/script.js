@@ -121,11 +121,13 @@ function addMessage() {
         if (valorSeleccionado == "Publico") {
           //console.log("addmesaje", mensaje.autor);
             socket.emit("publico", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
+
+            document.getElementById("texto").value = "";
             
         } else {
             socket.emit("privado", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
             //console.log("este es mi socket",miSocketId)
-            
+            document.getElementById("texto").value = "";
         }
     } else {
         console.log("Ninguna opción seleccionada en el desplegable");
