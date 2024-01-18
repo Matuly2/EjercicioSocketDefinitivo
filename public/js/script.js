@@ -9,6 +9,9 @@ var coleccionIdNombre={};//Esta variable guardará una colección que almacenar�
 var todosIdNombre={}//Esta variable guardará todos los ids y nombres conectados
 // Manejar el evento de conexión de un socket con el servidor
 var miNombreActual=null;
+
+
+
 socket.on("connect", () => {
   (async () => {
     // Asignar el ID del socket actual a la variable miSocketId
@@ -111,6 +114,7 @@ function mostrarDesplegable(data) {
 function addMessage() {
     const desplegable = document.getElementById("usuariosDesplegable");
     const valorSeleccionado = desplegable.value;
+    let texto=document.getElementById("texto").value;
 
     if (valorSeleccionado) {
         var mensaje = {
@@ -118,16 +122,19 @@ function addMessage() {
             texto: document.getElementById("texto").value
         };
 
-        if (valorSeleccionado == "Publico") {
+        if (valorSeleccionado == "Publico" && texto) {
           //console.log("addmesaje", mensaje.autor);
+            
             socket.emit("publico", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
 
             document.getElementById("texto").value = "";
             
-        } else {
+            
+        } else if(valorSeleccionado != "Publico" && texto){
             socket.emit("privado", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
             //console.log("este es mi socket",miSocketId)
             document.getElementById("texto").value = "";
+            
         }
     } else {
         console.log("Ninguna opción seleccionada en el desplegable");
@@ -209,7 +216,7 @@ function render(data, dirigido) {
 
         if (dirigido == "publico") {
             html += `
-                <div>
+                <div class="mensaje-container">
                     <strong id="nombre">[${horaMensaje}]  ${data.de}</strong>
                     <em id="mensaje">${mensajeMostrar}</em>
                 </div>
@@ -217,7 +224,7 @@ function render(data, dirigido) {
             deMen += "Mensaje de: " + data.de + " Contenido: " + mensajeMostrar;
         } else {
             html += `
-                <div>
+                <div class="mensaje-container">
                     <strong id="nombre">[${horaMensaje}]  ${data.de} (PRIVADO)</strong>
                     <em id="mensaje">${mensajeMostrar}</em>
                 </div>

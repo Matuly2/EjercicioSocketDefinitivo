@@ -12,28 +12,47 @@
     
 </head>
 <body>
-    <div id="miDiv">
-   <h1>WhatsApp 2: Ahora es Personal</h1> 
-  
-   <div id="chat"></div>
-    <br/>
-    <form >
-        
-        <input type="text" id="texto" placeholder="Cuentanos algo" onkeydown="presionarEnter(event)">
-        
-        
-    </form>
-    
-    <div id="contenedorDesplegable">
-        <select id="usuariosDesplegable"></select>
-    </div>
-    <button id="miBoton" onclick="addMessage()" >Enviar</button>
-    <button onclick="leerTexto()">Leer chat</button>
-    <button id="pdf" onclick="descargarComoPDF()" disabled>Descargar como Pdf</button>
-</div>
-    <footer>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">WhatsApp 2 Ahora es personal</span> by <span property="cc:attributionName">Mateo González Núñez</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
-    </footer>
+    <header>
+        <div class="contenedor-logo">
+            <a href="/">
+                <img src="img/logo.png" alt="Logo del chat">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <a href="/login">Inicio de sesión</a>
+        <a href="/registro">Registro</a>
+    </nav>
+    <main>
+        <div>
+          <div id="chat-container">
+            <div id="chat"></div>
+            <br/>
+            <div id="separador">
+              <form>
+                <div class="input-container">
+                  <input type="text" id="texto" placeholder="Cuentanos algo" onkeydown="presionarEnter(event)">
+                  <div class="file-input-container">
+                  
+                  </div>
+                  
+                  <select id="usuariosDesplegable"></select>
+                  <button type="button" id="miBoton" onclick="addMessage()">Enviar</button>
+                </div>
+              </form>
+      
+              <div class="button-container">
+                <button onclick="leerTexto()">Leer chat</button>
+                <button id="pdf" onclick="descargarComoPDF()" disabled>Descargar como Pdf</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+<footer>
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Chat Mateo</span> by <span property="cc:attributionName">Mateo González Núñez</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="color: #fff;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
+</footer>
 
 </body>
 </html>

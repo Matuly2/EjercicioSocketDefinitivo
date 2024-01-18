@@ -1,97 +1,190 @@
-/* Reset de márgenes y relleno para el cuerpo y la lista */
 body, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Estilo general */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; /* Color de fondo gris claro */
-    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3498db;  
+}
+
+.contenedor-logo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.contenedor-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+}
+
+nav {
+    background-color: #5ab5f2;
+    color: #3498db;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+main {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
-    color: #2ecc71; /* Verde brillante */
+    color: #3498db; 
+}
+
+#chat-container {
+    max-width: 500px; 
+    margin: 0 auto; 
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 #chat {
-    background-color: #fff; /* Fondo del chat */
-    border: 1px solid #ccc; /* Borde del chat */
+    width: 450px;
+    background-color: #fff;
+    padding: 2px;
+    margin-bottom: 2px;
+    max-width: 450px;
+    overflow-y: auto;
+    height: 200px;
+}
+
+#nombre {
+    color: #0a5588;
+    font-size: 14px
+}
+
+#mensaje {
+    color: #fff;
+    font-size: 13px
+}
+
+.mensaje-container {
+    background-color: #61aee1; 
+    padding: 10px; 
+    border-radius: 10px; 
+    margin: 10px 0; 
+}
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2184c8;
+}
+#separador {
     padding: 5px;
-    margin-bottom: 20px;
-    max-width: 300px;
-    overflow-y: auto; /* Scroll si es necesario */
-    height: 200px; /* Altura máxima del chat */
 }
 
-form {
-    margin-bottom: 20px;
+.input-container {
+    display: flex;
+    align-items: center;
 }
 
-input[type="text"] {
-    padding: 8px;
+.input-container input[type="text"],
+.input-container input[type="file"],
+.input-container select,
+.input-container button {
+    flex-grow: 1;
+    padding: 10px;
     margin-right: 10px;
-    border: 1px solid #ccc; /* Borde sutil */
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
-    padding: 8px 15px;
-    background-color: #2ecc71; /* Verde brillante */ /* Color del botón */
+.input-container input[type="file"] {
+    width: calc(100% - 100px);
+}
+
+.input-container input[type="file"] + button {
+    margin-left: 10px;
+}
+
+.input-container button {
+    background-color: #3498db;
     color: #fff;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
-#contenedorDesplegable {
-    margin-bottom: 20px;
+.input-container button:hover {
+    background-color: #2184c8;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    margin-right: 10px;
 }
 
 select {
-    padding: 8px;
-    border: 1px solid #ccc; /* Borde sutil */
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #1f75ae;
     border-radius: 5px;
 }
-
-/* Estilos para la opción destacada */
+select:hover{
+    background-color: #1f75ae;
+}
 .opcion-destacada {
-    background-color: #7FFF00; /* Color de fondo verde */
-    /* Otros estilos que desees aplicar */
+    background-color: #fff;
+    color: #3498db
 }
-
-#miDiv {
-    margin-bottom: 80px;
+.opcion-destacada:hover{
+    background-color: #abbef8;
 }
-
-/* Pie de página */
 footer {
-    background-color: #2ecc71; /* Verde brillante */
-    padding: 10px;
+    padding: 0;
     text-align: center;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    position: relative; /* Cambiado a relative */
-    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    margin-top: auto;
 }
 
-footer p {
-    color: #fff; /* Color de texto blanco */
-    font-size: 14px;
-}
-
-/* Media Queries para tamaños de pantalla específicos */
-@media only screen and (max-width: 600px) {
-    form {
-        width: 80%; /* Ajusta el ancho del formulario */
-    }
-
-    input {
-        margin-bottom: 10px; /* Reduce el espacio entre los campos de entrada */
-    }
-
-    button {
-        font-size: 14px; /* Reduce el tamaño del botón */
-    }
+footer a {
+    color: #fff;
+    text-decoration: none;
 }
