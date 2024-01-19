@@ -34,4 +34,14 @@ promise.always(function(data){
     }
 });
 }
+//Para detectar ENTER
+ document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form');
 
+    form.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            iniciarSesion();
+        }
+    });
+});
