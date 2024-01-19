@@ -5,14 +5,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
-header{
-    background-color: #3498db;  
+
+header {
+    background-color: #3498db;
 }
+
 .contenedor-logo {
-    flex-grow: 1; /* El logo ocupará el espacio restante y se centrará */
-    text-align: center; /* Centra horizontalmente */
+    flex-grow: 1;
+    text-align: center;
 }
+
 .contenedor-logo img {
     max-width: 100%;
     height: auto;
@@ -42,16 +46,18 @@ nav a:hover {
     background-color: #2980b9;
     color: #fff;
 }
+
 main {
     background-color: #dae7f0;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     margin: 0;
 }
-main img{
+
+main img {
     max-width: 400px;
+    height: auto;
 }
 
 img {
@@ -59,8 +65,6 @@ img {
     max-height: 100%;
     height: auto;
 }
-
-
 
 footer {
     text-align: center;
@@ -71,8 +75,14 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
 footer a {
     color: #fff;
     text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+    nav a {
+        margin: 5px;
+    }
+}

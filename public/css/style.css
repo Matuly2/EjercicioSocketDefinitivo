@@ -6,6 +6,7 @@ body, ul {
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
 header {
@@ -30,11 +31,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: auto;
 }
 
 nav a {
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 5px;
     padding: 8px 15px;
     border-radius: 5px;
     background-color: #3498db;
@@ -53,48 +55,50 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-h1 {
-    color: #3498db; 
+    overflow-x: hidden;
 }
 
 #chat-container {
-    max-width: 500px; 
-    margin: 0 auto; 
+    max-width: 100%;
+    margin: 0 auto;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    margin-bottom: 60px;
 }
 
 #chat {
-    width: 450px;
+    width: 100%;
     background-color: #fff;
     padding: 2px;
     margin-bottom: 2px;
-    max-width: 450px;
+    max-width: 100%;
     overflow-y: auto;
     height: 200px;
 }
 
 #nombre {
     color: #0a5588;
-    font-size: 14px
+    font-size: 14px;
 }
 
 #mensaje {
     color: #fff;
-    font-size: 13px
+    font-size: 13px;
 }
 
 .mensaje-container {
-    background-color: #61aee1; 
-    padding: 10px; 
-    border-radius: 10px; 
-    margin: 10px 0; 
+    background-color: #61aee1;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    word-wrap: break-word;
+    overflow-y: auto;
+    word-break: break-all;
 }
+
 button {
     background-color: #3498db;
     color: #fff;
@@ -107,6 +111,7 @@ button {
 button:hover {
     background-color: #2184c8;
 }
+
 #separador {
     padding: 5px;
 }
@@ -116,8 +121,15 @@ button:hover {
     align-items: center;
 }
 
-.input-container input[type="text"],
-.input-container input[type="file"],
+.input-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
 .input-container select,
 .input-container button {
     flex-grow: 1;
@@ -162,29 +174,85 @@ select {
     border: 1px solid #1f75ae;
     border-radius: 5px;
 }
-select:hover{
+
+select:hover {
     background-color: #1f75ae;
 }
+
 .opcion-destacada {
     background-color: #fff;
-    color: #3498db
+    color: #3498db;
 }
-.opcion-destacada:hover{
+
+.opcion-destacada:hover {
     background-color: #abbef8;
 }
+
 footer {
     padding: 0;
     text-align: center;
     padding: 10px;
     background-color: #3498db;
     color: #fff;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     margin-top: auto;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
+.mensaje-container {
+    max-width: 500px; /* O el valor que desees */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    /* Estilos específicos para dispositivos con una pantalla de hasta 768px de ancho */
+
+    nav {
+        flex-direction: row;
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    nav a {
+        margin: 0 5px;
+    }
+
+    main {
+        padding-bottom: 60px;
+        overflow-x: hidden;
+    }
+
+    #chat-container {
+        margin-bottom: 60px;
+        overflow-x: auto;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    #chat {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    #chat-container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .mensaje-container {
+        word-wrap: break-word;
+        overflow-y: auto;
+        max-height: 200px;
+        word-break: break-all; /* Forzar el salto de línea en palabras largas */
+    }
+
+
+    .input-container input[type="text"] {
+        box-sizing: border-box;
+        width: calc(100% - 20px); /* Ajusta el ancho del input */
+    }
 }
