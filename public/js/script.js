@@ -215,20 +215,38 @@ function render(data, dirigido) {
         }
 
         if (dirigido == "publico") {
+            if(data.de!=miNombreActual){
             html += `
                 <div class="mensaje-container">
                     <strong id="nombre">[${horaMensaje}]  ${data.de}</strong>
                     <em id="mensaje">${mensajeMostrar}</em>
                 </div>
             `;
+            }else{
+              html += `
+                <div class="mensaje-container2">
+                    <strong id="nombre">[${horaMensaje}]  ${data.de}</strong>
+                    <em id="mensaje">${mensajeMostrar}</em>
+                </div>
+            `;
+            }
             deMen += "Mensaje de: " + data.de + " Contenido: " + mensajeMostrar;
         } else {
+          if(data.de!=miNombreActual){
             html += `
                 <div class="mensaje-container">
                     <strong id="nombre">[${horaMensaje}]  ${data.de} (PRIVADO)</strong>
                     <em id="mensaje">${mensajeMostrar}</em>
                 </div>
             `;
+          }else{
+            html += `
+            <div class="mensaje-container2">
+                <strong id="nombre">[${horaMensaje}]  ${data.de} (PRIVADO)</strong>
+                <em id="mensaje">${mensajeMostrar}</em>
+            </div>
+        `;
+          }
             deMen += "Mensaje de: " + data.de + " Contenido: " + mensajeMostrar;
         }
         document.getElementById("chat").innerHTML = html;

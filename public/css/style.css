@@ -98,6 +98,15 @@ main {
     overflow-y: auto;
     word-break: break-all;
 }
+.mensaje-container2 {
+    background-color: #61e19d;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    word-wrap: break-word;
+    overflow-y: auto;
+    word-break: break-all;
+}
 
 button {
     background-color: #3498db;
