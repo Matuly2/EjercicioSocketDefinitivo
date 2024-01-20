@@ -141,7 +141,7 @@ function addMessage() {
 /** FUNCION RENDER **///Para mostrar los mensajes en el html
 var html = "";
 var deMen = "";
-/***LISTA DE INSULTOS*/
+/***LISTA DE INSULTOS***/
 var insultos = [
   "abanto", "abrazafarolas", "adufe", "alcornoque", "alfeñique", "andurriasmo", 
   "arrastracueros", "artabán", "atarre", "baboso", "barrabás", "barriobajero", 
