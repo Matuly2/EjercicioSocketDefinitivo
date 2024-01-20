@@ -144,7 +144,7 @@ var deMen = "";
 /***LISTA DE INSULTOS*/
 var insultos = [
   "abanto", "abrazafarolas", "adufe", "alcornoque", "alfeñique", "andurriasmo", 
-  "arrastracueros", "atarre", "baboso", "barrabás", "barriobajero", 
+  "arrastracueros", "artabán", "atarre", "baboso", "barrabás", "barriobajero", 
   "bebecharcos", "bellaco", "belloto", "berzotas", "besugo", "bobalicón", 
   "bocabuzón", "bocachancla", "bocallanta", "boquimuelle", "borrico", 
   "botarate", "brasas", "cabestro", "cabezaalberca", "cabezabuque", 
