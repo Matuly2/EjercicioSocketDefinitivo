@@ -144,7 +144,7 @@ var deMen = "";
 /***LISTA DE INSULTOS*/
 var insultos = [
   "abanto", "abrazafarolas", "adufe", "alcornoque", "alfeñique", "andurriasmo", 
-  "arrastracueros", "artabán", "atarre", "baboso", "barrabás", "barriobajero", 
+  "arrastracueros", "atarre", "baboso", "barrabás", "barriobajero", 
   "bebecharcos", "bellaco", "belloto", "berzotas", "besugo", "bobalicón", 
   "bocabuzón", "bocachancla", "bocallanta", "boquimuelle", "borrico", 
   "botarate", "brasas", "cabestro", "cabezaalberca", "cabezabuque", 
@@ -307,7 +307,7 @@ function leerTexto() {
   synth.speak(speech);
 }
 
-/**FUNCIÓN PARA QUE SE ENVÍEN MESAJES CON LA TECLA ENTER**/
+/***FUNCIÓN PARA QUE SE ENVÍEN MESAJES CON LA TECLA ENTER***/
 function presionarEnter(event) {
   // Verifica si la tecla presionada es "Enter"
   if (event.key === "Enter") {
