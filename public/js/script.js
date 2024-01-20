@@ -75,73 +75,67 @@ function esperarMiNombre() {
 }
 /**FUNCIÓN PARA EL DESPLEGABLE**/
 function mostrarDesplegable(data) {
-    const usuariosDesplegable = document.getElementById("usuariosDesplegable");
+  const usuariosDesplegable = $("#usuariosDesplegable");
 
-    // Limpiar el desplegable antes de agregar nuevas opciones
-    usuariosDesplegable.innerHTML = "";
+  // Limpiar el desplegable antes de agregar nuevas opciones
+  usuariosDesplegable.empty();
 
-    // Crear la opción por defecto "publico"
-    const publicoOption = document.createElement("option");
-    publicoOption.value = "Publico";
-    publicoOption.text = "Publico";
-    publicoOption.selected = true; // Seleccionado por defecto
+  // Crear la opción por defecto "publico"
+  const publicoOption = $("<option>")
+    .val("Publico")
+    .text("Publico")
+    .prop("selected", true); // Seleccionado por defecto
 
-    usuariosDesplegable.appendChild(publicoOption);
-    //console.log("este es el log de data en el desplegable",data)
-    // Iterar sobre los IDs recibidos y agregarlos como opciones
+  usuariosDesplegable.append(publicoOption);
 
-    //Convertimos la colección en un array para iterarla
-    const arrayIterable=Object.values(data);
-    //console.log(arrayIterable)
-    //console.log("Data  ", data)
-    arrayIterable.forEach((elemento) => {
-      
-        const option = document.createElement("option");
-        option.value = elemento.nombre;
-        option.text = elemento.nombre;  // Mostrar el nombre en el texto de la opción
-        //console.log("Este es el log del for each elemento", elemento);
-        //console.log("Este es el log del for each miNombre", miNombre);
-        if (elemento.id != socket.id) {
+  // Iterar sobre los IDs recibidos y agregarlos como opciones
+  const arrayIterable = Object.values(data);
 
-          usuariosDesplegable.appendChild(option);
-        } else {
-          miNombreActual=elemento.nombre;
-          option.classList.add("opcion-destacada");
-          usuariosDesplegable.appendChild(option);
-        }
-      });
-    }
-function addMessage() {
-    const desplegable = document.getElementById("usuariosDesplegable");
-    const valorSeleccionado = desplegable.value;
-    let texto=document.getElementById("texto").value;
+  $.each(arrayIterable, (index, elemento) => {
+    const option = $("<option>")
+      .val(elemento.nombre)
+      .text(elemento.nombre); // Mostrar el nombre en el texto de la opción
 
-    if (valorSeleccionado) {
-        var mensaje = {
-            autor: miNombreActual,
-            texto: document.getElementById("texto").value
-        };
-
-        if (valorSeleccionado == "Publico" && texto) {
-          //console.log("addmesaje", mensaje.autor);
-            
-            socket.emit("publico", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
-
-            document.getElementById("texto").value = "";
-            
-            
-        } else if(valorSeleccionado != "Publico" && texto){
-            socket.emit("privado", {mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado});
-            //console.log("este es mi socket",miSocketId)
-            document.getElementById("texto").value = "";
-            
-        }
+    if (elemento.id !== socket.id) {
+      usuariosDesplegable.append(option);
     } else {
-        console.log("Ninguna opción seleccionada en el desplegable");
+      miNombreActual = elemento.nombre;
+      option.addClass("opcion-destacada");
+      usuariosDesplegable.append(option);
     }
-
-    return false;
+  });
 }
+
+function addMessage() {
+  const desplegable = $("#usuariosDesplegable");
+  const valorSeleccionado = desplegable.val();
+  const texto = $("#texto").val();
+
+  if (valorSeleccionado) {
+    const mensaje = {
+      autor: miNombreActual,
+      texto: $("#texto").val(),
+    };
+
+    if (valorSeleccionado === "Publico" && texto) {
+      //console.log("addmesaje", mensaje.autor);
+
+      socket.emit("publico", { mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado });
+
+      $("#texto").val("");
+
+    } else if (valorSeleccionado !== "Publico" && texto) {
+      socket.emit("privado", { mensaje: mensaje.texto, de: mensaje.autor, para: valorSeleccionado });
+      //console.log("este es mi socket",miSocketId)
+      $("#texto").val("");
+    }
+  } else {
+    console.log("Ninguna opción seleccionada en el desplegable");
+  }
+
+  return false;
+}
+
 
 /**FUNCION RENDER **///Para mostrar los mensajes en el html
 /** FUNCION RENDER **///Para mostrar los mensajes en el html
@@ -202,7 +196,8 @@ function contieneInsulto(mensaje) {
 function render(data, dirigido) {
     //console.log(data, "este es el log del render");
     if (data !== null) {
-        const miBoton = document.getElementById("pdf");
+      const miBoton = document.getElementById("pdf");
+
 
         // Habilita el botón
         miBoton.removeAttribute("disabled");
@@ -249,10 +244,14 @@ function render(data, dirigido) {
           }
             deMen += "Mensaje de: " + data.de + " Contenido: " + mensajeMostrar;
         }
-        document.getElementById("chat").innerHTML = html;
+       document.getElementById("chat").innerHTML = html;
+
     } else {
         console.error("Los datos recibidos no son una colección de objetos:", data);
     }
+    const chatContainer = document.getElementById("chat");
+
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 /**Función para generar el pdf**/
 function descargarComoPDF() {
@@ -292,16 +291,16 @@ function sacarNombre(data){
 
 /** FUNCION PARA LEER EL CHAT**/
 function leerTexto() {
-  // Obtén el texto que quieres que se lea en voz alta
+  //Texto que se lee
   var textoAEscuchar = deMen;
 
-  // Crea un objeto de síntesis de voz
+  // Objeto sintesis de vox
   var synth = window.speechSynthesis;
 
-  // Crea un objeto de discurso
+  // Objeto discurso
   var speech = new SpeechSynthesisUtterance(textoAEscuchar);
 
-  // Puedes ajustar la configuración, como el idioma, el tono, la velocidad, etc.
+  
   speech.lang = 'es-ES';  // Código de idioma español de España
 
   // Reproduce el discurso
@@ -310,11 +309,12 @@ function leerTexto() {
 
 /**FUNCIÓN PARA QUE SE ENVÍEN MESAJES CON LA TECLA ENTER**/
 function presionarEnter(event) {
-  // Verificar si la tecla presionada es "Enter"
+  // Verifica si la tecla presionada es "Enter"
   if (event.key === "Enter") {
     // Evitar el comportamiento predeterminado del formulario
     event.preventDefault();
     // Obtener referencia al botón y disparar su evento de clic
-    document.getElementById("miBoton").click();
+    $("#miBoton").click();
+
   }
 }

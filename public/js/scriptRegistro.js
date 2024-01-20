@@ -1,18 +1,20 @@
 //Funciones para Node.js
 
-function registrarUsuario(){
-    
-    var usuario = document.getElementById("nombre_usuario").value;
-    var contraseña = document.getElementById("contrasena").value;
-    //Hago la petición al servidor y guardo la respuesta en la variable  promise
-    var promise=$.ajax({
+function registrarUsuario() {
+    var usuario = $("#nombre_usuario").val();
+    var contraseña = $("#contrasena").val();
+  
+    // Hago la petición al servidor y guardo la respuesta en la variable promise
+    var promise = $.ajax({
         type: "POST",
         url: "/registrar",
-        //lo que mando
-        data:JSON.stringify({username:usuario, password:contraseña}),
+        // lo que mando
+        data: JSON.stringify({username: usuario, password: contraseña}),
         contentType: "application/json;charset=UTF-8",
-        dataType:"json"
-});
+        dataType: "json"
+    });
+
+
 //Tratar la respuesta que me da el servidor
 promise.always(function(data){
 
@@ -34,10 +36,10 @@ promise.always(function(data){
 });
 }
 //Para detectar ENTER
- document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('form');
+ $(document).ready(function () {
+    var form = $('form');
 
-    form.addEventListener('keydown', function (e) {
+    form.on('keydown', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
             registrarUsuario();
